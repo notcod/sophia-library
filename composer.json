@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {
             "Sophia\\": "src/"
-        }
+        },
+        "files": [
+            "src/Functions.php"
+        ]
     }
 }
