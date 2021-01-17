@@ -44,8 +44,11 @@ function getFile($dir, $paths = "", $data = []){
     }
     if($paths != "")
         require_once(DIR.$dir);
-    else
-        return ROOT.$dir;
+    else{
+        $v = filemtime(DIR . $dir);
+        $v = $v == false ? '' : '?v=' . $v;
+        return IMGROOT . $dir . $v;
+    }
 }
 function realDir($dir){
     return str_replace("\\", "/", $dir);
