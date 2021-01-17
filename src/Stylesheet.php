@@ -17,8 +17,8 @@ class Stylesheet
         foreach ($styles as $style)
             $execute[] = $style["ext"] ? $style["href"] : ROOT . $style["href"] . '?v=' . filemtime($style["href"]);
 
-        $execute[] = getFile("assets/css/" . $data["view"] . ".css");
-        $execute[] = getFile("assets/css/" . $data["view"] . "/" . $data["page"] . ".css");
+        $execute[] = getFile("/assets/css/" . $data["view"] . ".css");
+        $execute[] = getFile("/assets/css/" . $data["view"] . "/" . $data["page"] . ".css");
 
         $execute = array_unique($execute);
 
