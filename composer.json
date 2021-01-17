@@ -14,7 +14,9 @@
             "Sophia\\": "src/"
         },
         "files": [
-            "src/Functions.php"
+            "src/Functions.php",
+            "template/Stylesheet.php",
+            "template/Javascript.php"
         ]
     }
 }
