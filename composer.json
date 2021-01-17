@@ -1,0 +1,17 @@
+{
+    "name": "notcod/sophia-library",
+    "description": "Sophia PHP framework MAIN library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Nemanja M",
+        "email": "mneca99+git@gmail.com"
+    }],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sophia\\": "src/"
+        }
+    }
+}
