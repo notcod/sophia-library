@@ -23,16 +23,16 @@ class Core
 
         $folder = $Controller == "json" ? 'json' : $folder;
 
-        if (file_exists(DIR . $folder . '/' . $Controller . '.php')) {
+        if (file_exists(APP . $folder . '/' . $Controller . '.php')) {
             $this->currentController = $Controller;
             if (isset($url[0])) unset($url[0]);
         } else {
             $error = "Controller [ $Controller ] doesn't exist!";
-            require_once(DIR . 'template/404.php');
+            require_once(APP . 'template/404.php');
             exit();
         }
 
-        require_once(DIR . $folder . '/' . $this->currentController . '.php');
+        require_once(APP . $folder . '/' . $this->currentController . '.php');
 
         $this->currentController = ucwords($folder) . "\\" . $this->currentController;
 
@@ -45,7 +45,7 @@ class Core
             if (isset($url[1])) unset($url[1]);
         } else {
             $error = "Method [ " . $Method . " ] doesn't exist in Controller [ $Controller ]";
-            require_once(DIR . 'template/404.php');
+            require_once(APP . 'template/404.php');
             exit();
         }
         $this->params = $url ? array_values($url) : [];
@@ -54,7 +54,6 @@ class Core
 
     public function getUrl()
     {
-        // $var = "url";
         $var = "572d4e421e5e6b9bc11d815e8a027112";
         if (isset($_GET[$var])) {
             $url = rtrim($_GET[$var], '/');

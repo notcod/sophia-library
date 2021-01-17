@@ -35,11 +35,11 @@ function getFile($dir, $paths = "", $data = []){
         $start = "";
         for($i = 0; $i < count($path) - 1; $i++){
             $start = $start == "" ? $path[0] : $start."/".$path[$i];
-            if(!file_exists(APPROOT.$start)){
-                mkdir(APPROOT.$start);
+            if(!file_exists(APP.$start)){
+                mkdir(APP.$start);
             }
         }
-        $myfile = fopen(APPROOT.$dir, "a") or die("Unable to open file!");
+        $myfile = fopen(APP.$dir, "a") or die("Unable to open file!");
         fclose($myfile);
     }
     if($paths != "")
@@ -47,8 +47,11 @@ function getFile($dir, $paths = "", $data = []){
     else
         return ROOT.$dir;
 }
+function realDir($dir){
+    return str_replace("\\", "/", $dir);
+}
 function content($part, $data){
-    return getFile('app/views/' . $part, APPROOT, $data);
+    return getFile('views/' . $part, APP, $data);
 }
 function getDefConst($check = false)
 {

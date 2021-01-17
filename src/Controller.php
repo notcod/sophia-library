@@ -23,14 +23,7 @@ class Controller
     {
         $run = explode('/', $model);
         $run = "\\Sophia\\Model\\" . end($run);
-
-        if (class_exists($run)) {
-            return new $run();
-        }else{
-            if (!file_exists(DIR.'models/' . $model . '.php')) return false;
-            require_once(DIR.'models/' . $model . '.php');
-            return new $run();
-        }
+        return new $run();
     }
     public function view($arr = [])
     {
@@ -49,7 +42,7 @@ class Controller
         $data["description"] = isset($data["description"]) ? $data["description"] : SITENAME;
         $data["keywords"] = isset($data["keywords"]) ? $data["keywords"] : SITENAME.",".SITENAME;
 
-        require_once(DIR.'template/Template.php');
+        require_once(__DIR__.'/../template/Template.php');
 
         exit();
     }
