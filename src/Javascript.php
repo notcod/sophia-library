@@ -18,8 +18,8 @@ class Javascript
             $execute[] = $script["ext"] ? $script["href"] : ROOT . $script["href"] . '?v=' . filemtime($script["href"]);
 
             
-        $execute[] = getFile("assets/js/" . $data["view"] . ".js");
-        $execute[] = getFile("assets/js/" . $data["view"] . "/" . $data["page"] . ".js");
+        $execute[] = getFile("/assets/js/" . $data["view"] . ".js");
+        $execute[] = getFile("/assets/js/" . $data["view"] . "/" . $data["page"] . ".js");
 
         echo PHP_EOL . '<!-- INCLUDED SCRIPTS -->' . PHP_EOL;
 
