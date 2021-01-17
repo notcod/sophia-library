@@ -42,7 +42,7 @@ class Controller
         $data["description"] = isset($data["description"]) ? $data["description"] : SITENAME;
         $data["keywords"] = isset($data["keywords"]) ? $data["keywords"] : SITENAME.",".SITENAME;
 
-        require_once(__DIR__.'/../template/Template.php');
+        require_once(app.'/template/Template.php');
 
         exit();
     }

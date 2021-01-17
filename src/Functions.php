@@ -25,7 +25,7 @@ function length($str, $c)
     return strlen($str) >= $c ? $str : '';
 }
 function getFile($dir, $paths = "", $data = []){
-    if(!file_exists(APPROOT.$dir)){
+    if(!file_exists(DIR.$dir)){
         if(!CREATE_FILE) return false;
 
         $extension = explode(".", $dir);
@@ -35,15 +35,15 @@ function getFile($dir, $paths = "", $data = []){
         $start = "";
         for($i = 0; $i < count($path) - 1; $i++){
             $start = $start == "" ? $path[0] : $start."/".$path[$i];
-            if(!file_exists(APP.$start)){
-                mkdir(APP.$start);
+            if(!file_exists(DIR.$start)){
+                mkdir(DIR.$start);
             }
         }
-        $myfile = fopen(APP.$dir, "a") or die("Unable to open file!");
+        $myfile = fopen(app.$dir, "a") or die("Unable to open file!");
         fclose($myfile);
     }
     if($paths != "")
-        require_once($paths.$dir);
+        require_once(DIR.$dir);
     else
         return ROOT.$dir;
 }
@@ -51,7 +51,7 @@ function realDir($dir){
     return str_replace("\\", "/", $dir);
 }
 function content($part, $data){
-    return getFile('views/' . $part, APP, $data);
+    return getFile('/app/views/' . $part, app, $data);
 }
 function getDefConst($check = false)
 {
